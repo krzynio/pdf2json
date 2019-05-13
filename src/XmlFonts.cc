@@ -356,6 +356,9 @@ GString* XmlFontAccu::CSStyle(int i,GBool textAsJSON){
    g+=i;
    XmlFont font=*g;
    GString *Size=GString::fromInt(font.getSize());
+   GString *Bold=GString::fromInt(font.isBold());
+   GString *Italic=GString::fromInt(font.isItalic());
+   GString *Oblique=GString::fromInt(font.isOblique());
    GString *colorStr=font.getColor().toString();
    GString *fontName=font.getFontName();
    GString *lSize;
@@ -378,6 +381,12 @@ GString* XmlFontAccu::CSStyle(int i,GBool textAsJSON){
      tmp->append(iStr);
      tmp->append("\",\"size\":\"");
      tmp->append(Size);
+     tmp->append("\",\"bold\":\"");
+     tmp->append(Bold);
+     tmp->append("\",\"oblique\":\"");
+     tmp->append(Oblique);
+     tmp->append("\",\"italic\":\"");
+     tmp->append(Italic);
      tmp->append("\",\"family\":\"");
      tmp->append(fontName); //font.getFontName());
      tmp->append("\",\"color\":\"");
